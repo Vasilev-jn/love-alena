@@ -455,3 +455,99 @@ body::before {
     animation: none;
   }
 }
+
+/* Кнопка переключения темы */
+.theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  background: rgba(35, 24, 8, 0.55);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+/* ============ Светлая тема ============ */
+.theme-light {
+  --card-border: rgba(120, 80, 20, 0.28);
+  --text: #43300f;
+  --muted: #6c4e22;
+  --soft: #8a6526;
+  --accent: #b9760f;
+  --accent-2: #8a5512;
+  --shadow: rgba(180, 120, 40, 0.18);
+}
+
+.theme-light body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at 50% 8%, rgba(255, 255, 255, 0.32), transparent 36%),
+    linear-gradient(rgba(255, 251, 244, 0.42), rgba(255, 247, 235, 0.62)),
+    url("assets/white_tulips-bg.png");
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .theme-light body {
+    background-attachment: scroll;
+  }
+}
+
+.theme-light body::before {
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 250, 240, 0.04)),
+    radial-gradient(circle at 50% 45%, transparent 0 42%, rgba(120, 80, 30, 0.12) 100%);
+}
+
+/* Заголовок и финал — мягче свечение, чтобы читалось на светлом */
+.theme-light .hero__title {
+  text-shadow: 0 1px 18px rgba(255, 255, 255, 0.55);
+}
+
+.theme-light .final__love {
+  color: #a8620c;
+  text-shadow: 0 1px 16px rgba(255, 255, 255, 0.5);
+}
+
+.theme-light .small-note,
+.theme-light .postscript__label {
+  color: var(--accent-2);
+}
+
+/* Блёстки на светлом фоне — тёплые золотые вместо белых */
+.theme-light .sparkle {
+  background: #d99b32;
+  box-shadow: 0 0 8px 2px rgba(190, 130, 40, 0.55);
+}
+
+.theme-light .hero__glow {
+  background: rgba(255, 220, 150, 0.28);
+}
+
+.theme-light .theme-toggle {
+  background: rgba(255, 250, 240, 0.7);
+  box-shadow: 0 6px 20px rgba(150, 100, 40, 0.22);
+}

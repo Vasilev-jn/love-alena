@@ -57,3 +57,29 @@ if ("IntersectionObserver" in window) {
 } else {
   revealTargets.forEach((el) => el.classList.add("is-visible"));
 }
+
+// Переключение тёмной / светлой темы (с запоминанием выбора)
+const themeToggle = document.querySelector("[data-theme-toggle]");
+
+function updateThemeToggle() {
+  const isLight = document.documentElement.classList.contains("theme-light");
+  themeToggle.textContent = isLight ? "🌙" : "☀️";
+  themeToggle.setAttribute(
+    "aria-label",
+    isLight ? "Включить тёмную тему" : "Включить светлую тему"
+  );
+}
+
+if (themeToggle) {
+  updateThemeToggle();
+
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.documentElement.classList.toggle("theme-light");
+
+    try {
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    } catch (e) {}
+
+    updateThemeToggle();
+  });
+}

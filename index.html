@@ -10,9 +10,21 @@
   <meta name="theme-color" content="#090711" />
 
   <link rel="stylesheet" href="style.css" />
+
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.classList.add("theme-light");
+      }
+    } catch (e) {}
+  </script>
 </head>
 
 <body>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Переключить тему">
+    ☀️
+  </button>
+
   <div class="page-sparkles" aria-hidden="true">
     <span class="sparkle"></span>
     <span class="sparkle"></span>
