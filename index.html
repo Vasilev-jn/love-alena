@@ -3,10 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Для тебя</title>
+
+  <title>Солнце, с днём рождения</title>
+
+  <meta name="description" content="Маленькое поздравление для Алёны" />
+  <meta name="theme-color" content="#090711" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <h1>Для тебя</h1>
-  <p>Скоро здесь будет маленькая история.</p>
+  <div class="page-sparkles" aria-hidden="true">
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+  </div>
+
+  <main class="page">
+    <section class="hero section">
+      <div class="hero__glow"></div>
+
+      <div class="hero__sparkles" aria-hidden="true">
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+      </div>
+
+      <p class="hero__label">маленькое поздравление</p>
+
+      <h1 class="hero__title">
+        Алёна,<br />
+        с днём рождения
+      </h1>
+
+      <p class="hero__text">
+        Я хотел сделать для тебя что-то чуть большее, чем просто сообщение.
+      </p>
+
+      <button class="hero__button" type="button" data-scroll-to="letter">
+        Открыть
+      </button>
+    </section>
+
+    <section class="letter section" id="letter">
+      <div class="card">
+        <p>
+          Алёна, с днём рождения.
+        </p>
+
+        <p>
+          Я считаю тебя уже родным человеком. Мы с тобой прошли через небольшие
+          истории, которые нас очень сильно сблизили, и я знаю, какая ты сильная
+          духом, прекрасная в душе и снаружи.
+        </p>
+
+        <p class="small-note">
+          и сиси тоже, да, это важно было отметить))
+        </p>
+      </div>
+    </section>
+
+    <section class="photo-section section">
+      <div class="photo-slider" data-slider>
+        <div class="photo-slider__track">
+          <figure class="photo-card">
+            <img src="assets/alena-1.jpg" alt="Фотография Алёны" />
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/alena-2.jpg" alt="Фотография Алёны" />
+          </figure>
+        </div>
+
+        <div class="photo-slider__dots" aria-label="Переключение фотографий">
+          <button class="photo-slider__dot is-active" type="button" aria-label="Первая фотография"></button>
+          <button class="photo-slider__dot" type="button" aria-label="Вторая фотография"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter section">
+      <div class="card">
+        <p>
+          Такой прекрасный день, как твой день рождения, отмечается раз в год,
+          и я хотел бы присутствовать на всех следующих твоих днях рождения -
+          быть рядом, радоваться за тебя и поддерживать тебя.
+        </p>
+      </div>
+    </section>
+
+    <section class="photo-section section">
+      <div class="photo-slider" data-slider>
+        <div class="photo-slider__track">
+          <figure class="photo-card">
+            <img src="assets/alena-3.jpg" alt="Фотография Алёны" />
+          </figure>
+
+          <figure class="photo-card">
+            <img src="assets/alena-4.jpg" alt="Фотография Алёны" />
+          </figure>
+        </div>
+
+        <div class="photo-slider__dots" aria-label="Переключение фотографий">
+          <button class="photo-slider__dot is-active" type="button" aria-label="Третья фотография"></button>
+          <button class="photo-slider__dot" type="button" aria-label="Четвёртая фотография"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter section">
+      <div class="card">
+        <p>
+          Я желаю тебе добиваться своих целей раз за разом, делать всё,
+          чего только захочется твоей душе: и сладкое, и волшебное,
+          и съездить в Кишинёв 12 сентября на концерт Noize MC,
+          и наконец целовать меня в любое удобное для тебя время.
+        </p>
+      </div>
+    </section>
+
+    <section class="pendant section">
+      <div class="card pendant__card">
+        <h2>Маленький символ</h2>
+
+        <p>
+          Этот кулон мне показался не просто красивым. В нём есть что-то очень
+          нежное, тёплое и немного волшебное.
+        </p>
+      </div>
+    </section>
+
+    <section class="arcane section">
+      <figure class="arcane-card">
+        <img src="assets/ekko-powder.jpg" alt="Кадр с кулоном" />
+
+        <figcaption>
+          иногда один маленький символ говорит больше, чем длинные объяснения.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="postscript section">
+      <div class="card postscript__card">
+        <p class="postscript__label">P.S.</p>
+
+        <p>
+          Этот кадр — из сериала «Аркейн», 2 сезон, 7 серия. Ты его не смотрела,
+          поэтому пара слов для контекста.
+        </p>
+
+        <p>
+          Там герой с помощью маленького устройства попадает в другую реальность —
+          где нет вражды, где всё сложилось хорошо, и где близкий ему человек
+          снова счастлив. В этом мире они проводят один тёплый, тихий вечер вместе,
+          и этот кулон — символ той самой реальности, в которую так хочется верить.
+        </p>
+
+        <p>
+          Мне захотелось подарить тебе кусочек этого чувства: что где-то всё
+          обязательно складывается правильно. И что рядом с тобой мне хочется
+          строить именно такую реальность.
+        </p>
+      </div>
+    </section>
+
+    <section class="final section">
+      <div class="card final__card">
+        <p>
+          Ты очень важна для меня.
+        </p>
+
+        <p class="final__love">
+          Люблю тебя.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

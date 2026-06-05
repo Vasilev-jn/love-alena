@@ -1,0 +1,451 @@
+:root {
+  --bg: #0b0702;
+  --card: rgba(35, 24, 8, 0.74);
+  --card-strong: rgba(48, 32, 9, 0.82);
+  --card-border: rgba(255, 212, 102, 0.24);
+  --text: #fff4cf;
+  --muted: #e7c77d;
+  --soft: #b88a36;
+  --accent: #ffd76a;
+  --accent-2: #c88422;
+  --shadow: rgba(255, 190, 64, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 204, 88, 0.11), transparent 34%),
+    linear-gradient(rgba(8, 5, 2, 0.52), rgba(9, 6, 2, 0.94)),
+    url("assets/tulips-bg.png");
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.72)),
+    radial-gradient(circle at 50% 45%, transparent 0 38%, rgba(0, 0, 0, 0.42) 100%);
+  z-index: -1;
+}
+
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+.page {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px 16px 52px;
+}
+
+.section {
+  min-height: auto;
+  padding: 20px 0;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero__glow {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: -80px;
+  top: 120px;
+  border-radius: 50%;
+  background: rgba(255, 211, 95, 0.12);
+  filter: blur(34px);
+  pointer-events: none;
+}
+
+.hero__label {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  margin: 0 0 18px;
+  font-size: clamp(46px, 13vw, 58px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  color: var(--text);
+  text-shadow: 0 0 26px rgba(255, 215, 106, 0.36);
+}
+
+.hero__text {
+  max-width: 320px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.hero__button {
+  width: max-content;
+  border: 0;
+  border-radius: 999px;
+  padding: 15px 28px;
+  color: #2b1700;
+  font-size: 17px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffe68a, #d99b32 54%, #a96012);
+  box-shadow:
+    0 0 0 1px rgba(255, 242, 176, 0.25) inset,
+    0 12px 34px rgba(255, 193, 62, 0.28);
+  cursor: pointer;
+}
+
+.card {
+  width: 100%;
+  padding: 24px 20px;
+  border-radius: 28px;
+}
+
+.card p {
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.68;
+  letter-spacing: -0.01em;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.small-note {
+  margin-top: 6px !important;
+  color: #f7cf83;
+  font-style: italic;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  text-align: right;
+  opacity: 0.92;
+}
+
+.photo-section {
+  padding: 12px 0;
+}
+
+.photo-slider {
+  width: 100%;
+}
+
+.photo-slider__track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 2px 14px;
+  scrollbar-width: none;
+}
+
+.photo-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-card {
+  flex: 0 0 100%;
+  margin: 0;
+  overflow: hidden;
+  scroll-snap-align: center;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 217, 112, 0.25);
+  background: rgba(20, 13, 4, 0.84);
+  box-shadow:
+    0 18px 56px rgba(0, 0, 0, 0.5),
+    0 0 26px rgba(255, 193, 62, 0.12);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: min(72vh, 620px);
+  object-fit: cover;
+}
+
+.photo-slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  padding-top: 4px;
+}
+
+.photo-slider__dot {
+  width: 22px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 226, 151, 0.32);
+}
+
+.photo-slider__dot.is-active {
+  width: 34px;
+  background: linear-gradient(90deg, #ffe68a, #c98422);
+  box-shadow: 0 0 14px rgba(255, 213, 106, 0.34);
+}
+
+.pendant h2 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.arcane {
+  padding-top: 20px;
+}
+
+.arcane-card {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 217, 112, 0.22);
+  background: rgba(18, 12, 5, 0.86);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.52);
+}
+
+.arcane-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.arcane-card figcaption {
+  padding: 14px 16px 17px;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.final {
+  min-height: 82svh;
+  display: flex;
+  align-items: center;
+}
+
+.final__card {
+  text-align: center;
+}
+
+.final__card p {
+  font-size: 21px;
+}
+
+.final__love {
+  margin-top: 12px !important;
+  font-size: 38px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.05em;
+  color: #ffe68a;
+  text-shadow: 0 0 26px rgba(255, 213, 106, 0.42);
+}
+
+.postscript__label {
+  margin: 0 0 14px !important;
+  color: var(--accent);
+  font-size: 14px !important;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Плавное появление блоков при прокрутке */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Появление hero-экрана при загрузке (с задержкой по очереди) */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__label,
+.hero__title,
+.hero__text,
+.hero__button {
+  opacity: 0;
+  animation: rise-in 0.85s ease forwards;
+}
+
+.hero__label  { animation-delay: 0.15s; }
+.hero__title  { animation-delay: 0.35s; }
+.hero__text   { animation-delay: 0.6s; }
+.hero__button { animation-delay: 0.85s; }
+
+/* Плавающее свечение на hero */
+@keyframes drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-16px, 20px) scale(1.12); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.hero__glow {
+  animation: drift 7s ease-in-out infinite;
+}
+
+/* Немного блёсток на hero */
+.hero__sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff4cf;
+  box-shadow: 0 0 8px 2px rgba(255, 226, 151, 0.85);
+  opacity: 0;
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50%      { opacity: 0.9; transform: scale(1); }
+}
+
+.hero__sparkles .sparkle:nth-child(1) { top: 22%; left: 16%; width: 5px; height: 5px; animation-delay: 0.4s; }
+.hero__sparkles .sparkle:nth-child(2) { top: 34%; right: 20%; animation-delay: 1.2s; }
+.hero__sparkles .sparkle:nth-child(3) { top: 58%; left: 24%; width: 4px; height: 4px; animation-delay: 2s; }
+.hero__sparkles .sparkle:nth-child(4) { top: 48%; right: 14%; width: 7px; height: 7px; animation-delay: 0.9s; }
+.hero__sparkles .sparkle:nth-child(5) { top: 70%; right: 32%; width: 4px; height: 4px; animation-delay: 1.7s; }
+.hero__sparkles .sparkle:nth-child(6) { top: 14%; right: 38%; width: 5px; height: 5px; animation-delay: 2.6s; }
+
+/* Блёстки по всей странице (зафиксированы поверх фона, под текстом) */
+.page-sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-sparkles .sparkle { animation-duration: 4.6s; }
+
+.page-sparkles .sparkle:nth-child(1)  { top: 8%;  left: 12%; width: 4px; height: 4px; animation-delay: 0.3s; }
+.page-sparkles .sparkle:nth-child(2)  { top: 18%; right: 10%; width: 6px; height: 6px; animation-delay: 1.4s; }
+.page-sparkles .sparkle:nth-child(3)  { top: 31%; left: 8%;  width: 5px; height: 5px; animation-delay: 2.5s; }
+.page-sparkles .sparkle:nth-child(4)  { top: 44%; right: 16%; width: 4px; height: 4px; animation-delay: 0.8s; }
+.page-sparkles .sparkle:nth-child(5)  { top: 53%; left: 18%; width: 6px; height: 6px; animation-delay: 3.1s; }
+.page-sparkles .sparkle:nth-child(6)  { top: 62%; right: 12%; width: 5px; height: 5px; animation-delay: 1.9s; }
+.page-sparkles .sparkle:nth-child(7)  { top: 72%; left: 10%; width: 4px; height: 4px; animation-delay: 2.2s; }
+.page-sparkles .sparkle:nth-child(8)  { top: 81%; right: 22%; width: 6px; height: 6px; animation-delay: 0.6s; }
+.page-sparkles .sparkle:nth-child(9)  { top: 90%; left: 22%; width: 5px; height: 5px; animation-delay: 3.5s; }
+.page-sparkles .sparkle:nth-child(10) { top: 38%; left: 46%; width: 3px; height: 3px; animation-delay: 2.8s; }
+
+/* Живая кнопка: мягкая пульсация свечения */
+@keyframes button-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(255, 242, 176, 0.25) inset,
+      0 12px 34px rgba(255, 193, 62, 0.28);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(255, 242, 176, 0.35) inset,
+      0 14px 44px rgba(255, 193, 62, 0.5);
+  }
+}
+
+.hero__button {
+  animation:
+    rise-in 0.85s ease 0.85s forwards,
+    button-pulse 2.6s ease-in-out 1.7s infinite;
+  transition: transform 0.2s ease;
+}
+
+.hero__button:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.hero__button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Мерцающее «Люблю тебя» в финале */
+@keyframes love-glow {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 26px rgba(255, 213, 106, 0.42);
+  }
+  50% {
+    transform: scale(1.045);
+    text-shadow: 0 0 40px rgba(255, 213, 106, 0.75);
+  }
+}
+
+.final__love {
+  animation: love-glow 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero__label,
+  .hero__title,
+  .hero__text,
+  .hero__button,
+  .hero__glow,
+  .final__love {
+    opacity: 1;
+    animation: none;
+  }
+
+  .sparkle {
+    animation: none;
+  }
+}
