@@ -474,6 +474,7 @@ body::before {
   border-radius: 50%;
   background: rgba(35, 24, 8, 0.55);
   color: var(--text);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
   cursor: pointer;
